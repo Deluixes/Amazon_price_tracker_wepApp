@@ -1,0 +1,25 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h1>Products List</h1>
+  {% if followed_products_list %}
+    <ul>
+    {% for product in followed_products_list %}
+        <li><a href="{{ product.product.get_absolute_url }}">{{ product.product.product_name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No products are available.</p>
+{% endif %}
+
+<h8>{{error_message}}</h8>
+<form action="" method="post">
+    {% csrf_token %}
+    <table>
+    {{ form.as_table }}
+    </table>
+    <input type="submit" value="Submit">
+  </form>
+
+{% endblock %}

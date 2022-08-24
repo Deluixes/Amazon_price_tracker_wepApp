@@ -1,0 +1,48 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h4>{{ amazon_page.product_name }}</h4>
+<h8><a href="{{ amazon_page.url }}">{{ amazon_page.url }}</h8>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+<canvas id="myChart"></canvas>
+
+{% endblock %}
+
+{%block scripts%}
+<script>
+  const data = {
+    datasets: [{
+      label: 'Price evolution per day',
+      backgroundColor: 'rgb(255, 99, 132)',
+      borderColor: 'rgb(255, 99, 132)',
+      data: {{data|safe}},
+    }]
+  };
+
+  const config = {
+    type: 'line',
+    data : data,
+    options: {
+        scales : {
+            x: {
+                parsing: false,
+                type: 'time',
+                time: {
+                    unit: 'day'
+                }
+            }
+        }
+
+    }
+  };
+</script>
+
+<script>
+  const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
+</script>
+
+{%endblock scripts%}
