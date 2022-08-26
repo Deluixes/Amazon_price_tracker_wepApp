@@ -25,7 +25,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
+DEBUG = False
 
 # Server IP address
 ALLOWED_HOSTS = []
@@ -42,6 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'amazontrackingsite.apps.AmazontrackingsiteConfig',
     'django_celery_beat',
+    'crispy_forms',
+    'crispy_bootstrap5',
+
 
 ]
 
@@ -138,3 +142,7 @@ CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 DJANGO_CELERY_BEAT_TZ_AWARE = False
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap5'

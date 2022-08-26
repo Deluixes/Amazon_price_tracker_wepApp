@@ -2,6 +2,7 @@
 
 {% block content %}
 
+
   {% if form.errors %}
     <p>Your username and password didn't match. Please try again.</p>
   {% endif %}
@@ -15,23 +16,21 @@
     {% endif %}
   {% endif %}
 
-  <form method="post" action="{% url 'login' %}">
-    {% csrf_token %}
-    <table>
-      <tr>
-        <td>{{ form.username.label_tag }}</td>
-        <td>{{ form.username }}</td>
-      </tr>
-      <tr>
-        <td>{{ form.password.label_tag }}</td>
-        <td>{{ form.password }}</td>
-      </tr>
-    </table>
-    <input type="submit" value="login">
-    <input type="hidden" name="next" value="{{ next }}">
-  </form>
+
+<form method="POST" action="{% url 'login' %}">
+  {% csrf_token %}
+  <label class="form-label">Username</label>
+  <p type="text" placeholder="Username">{{ form.username }}</p>
+
+  <label class="form-label">Password</label>
+  <p type="password" placeholder="Password">{{ form.password }}</p>
+  <button type="submit" class="btn btn-primary">Login</button>
+  <input type="hidden" name="next" value="{{ next }}">
+</form>
 
   {# Assumes you setup the password_reset view in your URLconf #}
   <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+  <p><a href="{% url 'signup' %}">Not registered yet ?</a></p>
+
 
 {% endblock %}

@@ -1,0 +1,41 @@
+.sidebar-nav {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-link {
+  color: var(--bs-white);
+}
+
+.container-fluid {
+  width: 100%;
+  padding-right: var(--bs-gutter-x, 0.75rem);
+  padding-left: var(--bs-gutter-x, 0.75rem);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.test {
+    color: rgb(214, 122, 127);
+    font-weight: bold;
+}
+
+#id_username {
+    width: 25%;
+    border: 2px solid;
+    border-radius: 4px;
+}
+
+#id_password {
+    width: 25%;
+    border: 2px solid;
+    border-radius: 4px;
+}
+
+form {
+    display: inline-block;
+}
+
+
+
